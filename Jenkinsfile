@@ -10,4 +10,13 @@ pipeline {
       }
     }
   }
+  stages {
+    stage('Run ruby') {
+      steps {
+        container('ruby') {
+          sh 'ruby -v'
+        }
+      }
+    }
+  }
 }
