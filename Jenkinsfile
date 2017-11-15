@@ -33,11 +33,11 @@ podTemplate(label: 'docker', cloud: 'minikube',
   def image = "192.168.99.1:5555/frontend"
   node('docker') {
     stage('Build Docker image') {
-      git 'https://github.com/thrwwy/frontend.git'
       container('docker') {
+        git 'https://github.com/thrwwy/frontend.git'
+        sh "docker build -t ${image} ."
         sh "docker -help"
         sh "ls -latr"
-        sh "sudo docker build -t ${image} ."
       }
     }
   }
