@@ -39,8 +39,11 @@ podTemplate(label: 'docker', cloud: 'minikube',
         sh "docker version"
         sh "sleep 600"
         sh "docker build -t ${image} ."
-        sh "docker -help"
-        sh "ls -latr"
+      }
+    }
+    stage('Push Image'){
+      container('docker'){
+        sh "docker push ${image}"
       }
     }
   }
