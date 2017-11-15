@@ -37,6 +37,7 @@ podTemplate(label: 'docker', cloud: 'minikube',
       container('docker') {
         git 'https://github.com/thrwwy/frontend.git'
         sh "docker version"
+        sh "sleep 600"
         sh "docker build -t ${image} ."
         sh "docker -help"
         sh "ls -latr"
