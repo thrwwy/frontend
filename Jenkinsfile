@@ -35,7 +35,7 @@ podTemplate(label: 'docker', cloud: 'minikube',
     stage('Build Docker image') {
       git 'https://github.com/thrwwy/frontend.git'
       container('docker') {
-        sh "docker build -t ${image} ."
+        sh "sudo docker build -t ${image} ."
       }
     }
   }
