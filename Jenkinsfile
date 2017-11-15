@@ -36,8 +36,6 @@ podTemplate(label: 'docker', cloud: 'minikube',
     stage('Build Docker image') {
       container('docker') {
         git 'https://github.com/thrwwy/frontend.git'
-        sh "docker version"
-        sh "sleep 600"
         sh "docker build -t ${image} ."
       }
     }
