@@ -26,7 +26,7 @@
  */
 
 podTemplate(label: 'docker', cloud: 'minikube',
-  containers: [containerTemplate(name: 'docker', image: 'docker:17.10.0-ce', ttyEnabled: true, command: 'cat')],
+  containers: [containerTemplate(name: 'docker', image: 'docker:stable-dind', ttyEnabled: true, command: 'cat')],
   volumes: [hostPathVolume(hostPath: '/var/run/docker.sock', mountPath: '/var/run/docker.sock')]
   ) {
 
