@@ -25,6 +25,7 @@
  * This pipeline will run a Docker image build
  */
 
+
 podTemplate(label: 'docker', cloud: 'minikube',
   containers: [containerTemplate(name: 'docker', image: 'docker:stable-dind', ttyEnabled: true, command: 'cat')],
   volumes: [hostPathVolume(hostPath: '/var/run/docker.sock', mountPath: '/var/run/docker.sock')]
