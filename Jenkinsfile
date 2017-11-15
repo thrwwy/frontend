@@ -30,7 +30,7 @@ podTemplate(label: 'docker', cloud: 'minikube',
   volumes: [hostPathVolume(hostPath: '/var/run/docker.sock', mountPath: '/var/run/docker.sock')]
   ) {
 
-  def image = "192.168.99.1:5555/frontend"
+  def image = "192.168.99.1:5555/frontend:${BUILD_NUMBER}"
   node('docker') {
     stage('Build Docker image') {
       container('docker') {
