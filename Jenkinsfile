@@ -30,10 +30,10 @@ podTemplate(label: 'docker', cloud: 'minikube',
   volumes: [hostPathVolume(hostPath: '/var/run/docker.sock', mountPath: '/var/run/docker.sock')]
   ) {
 
-  def image = "jenkins/jnlp-slave"
+  def image = "192.168.99.1:5555/frontend"
   node('docker') {
     stage('Build Docker image') {
-      git 'https://github.com/jenkinsci/docker-jnlp-slave.git'
+      git 'https://github.com/thrwwy/frontend.git'
       container('docker') {
         sh "docker build -t ${image} ."
       }
